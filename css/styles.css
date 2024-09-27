@@ -3,16 +3,26 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
 header {
-  background: #333;
+  background: #f4f4f4;
   color: #fff;
   padding: 10px 20px;
+  width: 100%; 
+  text-align: center; 
+}
+
+h1 {
+  color: black;
 }
 
 nav ul {
   list-style-type: none;
+  padding: 0;
 }
 
 nav ul li {
@@ -22,11 +32,45 @@ nav ul li {
 
 main {
   padding: 20px;
+  text-align: center; 
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px; 
+  justify-items: center; 
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 .product {
   border: 1px solid #ccc;
-  margin: 10px;
   padding: 10px;
   background: #fff;
+  text-align: center; 
+}
+
+.product img {
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 5px; 
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+footer {
+  width: 100%; 
+  text-align: center; 
+  padding: 10px 0; 
 }

@@ -18,6 +18,7 @@ const products = [
 
 const productsSection = document.querySelector('.product-container');
 const cart = []; // cart variable
+const wishlist = []; // wishlist variable
 
 function renderProducts(products) {
     productsSection.innerHTML = ''; // Clear existing products
@@ -31,6 +32,7 @@ function renderProducts(products) {
             <img src="${product.image}" alt="${product.name}">
             <p>Price: $${product.price.toFixed(2)}</p>
             <button onclick="addToCart(${product.id})">Add to Cart</button>
+            <button onclick="addToWishlist(${product.id})">Add to Wishlist</button>
         `;
         productsSection.appendChild(productDiv);
     });
@@ -72,6 +74,49 @@ function addToCart(productId) {
 
     updateCartDisplay();
     showNotification(`${product.name} added to cart!`);
+}
+
+function addToWishlist(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!wishlist.some(p => p.id === productId)) {
+        wishlist.push(product);
+        renderWishlist();
+        showNotification(`${product.name} added to wishlist!`);
+    } else {
+        showNotification(`${product.name} is already in your wishlist.`);
+    }
+}
+
+function renderWishlist() {
+    const wishlistContainer = document.querySelector('.wishlist-container');
+    wishlistContainer.innerHTML = ''; // Clear existing items
+
+    if (wishlist.length === 0) {
+        wishlistContainer.innerHTML = '<p>Your wishlist is empty.</p>';
+        return;
+    }
+
+    wishlist.forEach(product => {
+        const wishlistItem = document.createElement('div');
+        wishlistItem.classList.add('wishlist-item');
+        wishlistItem.innerHTML = `
+            <h3>${product.name}</h3>
+            <img src="${product.image}" alt="${product.name}">
+            <p>Price: $${product.price.toFixed(2)}</p>
+            <button onclick="removeFromWishlist(${product.id})">Remove</button>
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        wishlistContainer.appendChild(wishlistItem);
+    });
+}
+
+function removeFromWishlist(productId) {
+    const productIndex = wishlist.findIndex(p => p.id === productId);
+    if (productIndex > -1) {
+        wishlist.splice(productIndex, 1);
+        renderWishlist();
+        showNotification(`Removed from wishlist.`);
+    }
 }
 
 function updateCartDisplay() {
@@ -123,6 +168,7 @@ document.getElementById('sort-options').addEventListener('change', (event) => {
 
 // Initial render
 renderProducts(products);
+renderWishlist();
 
 document.getElementById('checkout-button').addEventListener('click', function() {
     if (cart.length === 0) {

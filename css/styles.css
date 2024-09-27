@@ -98,3 +98,14 @@ footer {
 #checkout-button:hover {
   background: #0056b3;
 }
+
+.wishlist-container {
+  margin: 20px 0;
+}
+
+.wishlist-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  background: #fff;
+}

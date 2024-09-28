@@ -39,8 +39,8 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px; 
-  justify-items: center; 
-  max-width: 1200px; 
+  justify-items: center;
+  max-width: 62.5vw; 
   margin: 0 auto; 
 }
 

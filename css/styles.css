@@ -109,3 +109,20 @@ footer {
   margin: 10px 0;
   background: #fff;
 }
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+}
+
+#back-to-top:hover {
+  background: #0056b3;
+}

@@ -129,6 +129,7 @@ function updateCartDisplay() {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
         cartItem.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover;">
             <h3>${product.name}</h3>
             <p>Price: $${product.price.toFixed(2)}</p>
             <p>Quantity: ${product.quantity}</p>

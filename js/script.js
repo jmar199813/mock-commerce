@@ -101,7 +101,7 @@ function renderWishlist() {
         wishlistItem.classList.add('wishlist-item');
         wishlistItem.innerHTML = `
             <h3>${product.name}</h3>
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}" alt="${product.name}" style="width: 100px; height: 100px; object-fit: cover;">
             <p>Price: $${product.price.toFixed(2)}</p>
             <button onclick="removeFromWishlist(${product.id})">Remove</button>
             <button onclick="addToCart(${product.id})">Add to Cart</button>
@@ -129,7 +129,7 @@ function updateCartDisplay() {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
         cartItem.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover;">
+            <img src="${product.image}" alt="${product.name}" style="width: 100px; height: 100px; object-fit: cover;">
             <h3>${product.name}</h3>
             <p>Price: $${product.price.toFixed(2)}</p>
             <p>Quantity: ${product.quantity}</p>
